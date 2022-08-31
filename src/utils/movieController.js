@@ -1,5 +1,9 @@
 const Movie = require("../movie/movieModel");
 
+// http://localhost:5000/movie
+// http://localhost:5000/hello?name=dan&age=35&somethingelse=random
+// http://localhost:5000/movie?
+
 exports.addMovie = async (req, res) => {
     try {
         if (req.body.title && req.body.actor){
@@ -86,3 +90,5 @@ exports.editMovie = async (req, res) =>
         console.log(error)
     }
 }
+
+
