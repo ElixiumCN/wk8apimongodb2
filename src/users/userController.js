@@ -20,7 +20,7 @@ exports.addUser = async (req, res) => {
         await newUser.save();
         res.status(201).send({ user: newUser.name, token });
     } catch (error) {
-        console.log(error)
+        console.log(error);
         if (error.code === 11000) {
         res.status(400).send({ error: "Email already used" });
         } else {
