@@ -1,20 +1,16 @@
 const mongoose = require('mongoose')
+const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
 
 const userSchema = new mongoose.Schema(
     {
-        // name:
-        // {
-        //     type: String,
-        //     required: true,
-        //     unique: true,
-        // },
-        // age:
-        // {
-        //     type: Number,
-        //     default: "Not Specified",
-        // },
-
         username: 
+        {
+            type: String,
+            required: true,
+            unique: true
+        },
+        email:
         {
             type: String,
             required: true,
@@ -25,12 +21,12 @@ const userSchema = new mongoose.Schema(
             type: String,
             required: true,
             unique: true
-        }
+        },
     }
 )
 
 userSchema.statics.findByCredentials = async (email, password) => {
-    const user = await User.findOne({ email });
+    const user = await Users.findOne({ email });
 
     if (!user) {
         throw new Error("Unable to login");

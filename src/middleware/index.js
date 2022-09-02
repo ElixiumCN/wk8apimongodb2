@@ -20,7 +20,7 @@ exports.tokenCheck = async (req, res, next) => {
   try {
     const token = req.header("Authorization").replace("Bearer ", "");
     const decoded = jwt.verify(token, "some secret");
-    const user = await User.findOne({ _id: decoded._id });
+    const user = await Users.findOne({ _id: decoded._id });
 
     if (!user) {
       throw new Error("User does not exist");

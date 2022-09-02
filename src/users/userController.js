@@ -1,29 +1,11 @@
 const Users = require("./userModel");
 
-// exports.addUser = async (req, res) => {
-//     try {
-//         if (req.body.name && req.body.age) {
-//             console.log(req.body)
-//             await Users.create({ name: req.body.name, age: req.body.age })
-//             res.status(201).send(await Users.find({}))
-//         } else {
-//             console.log("no name or age found")
-//             res.status(400).send({ error: "no name or age found" })
-//         }
-//     } catch (error)
-//     {
-//         console.log("error in addUser")
-//         res.status(500).send({ error: "internal server error" })
-//         console.log(error)
-//     }
-// }
-
 // Login
 exports.login = async (req, res) => {
     const { email, password } = req.body;
 
     try {
-        const user = await User.findByCredentials(email, password);
+        const user = await Users.findByCredentials(email, password);
         const token = user.generateAuthToken();
         res.status(200).send({ user: user.name, token });
     } catch (error) {
@@ -116,3 +98,22 @@ exports.userEdit = async (req, res) =>
 
 }
 
+
+
+// exports.addUser = async (req, res) => {
+//     try {
+//         if (req.body.name && req.body.age) {
+//             console.log(req.body)
+//             await Users.create({ name: req.body.name, age: req.body.age })
+//             res.status(201).send(await Users.find({}))
+//         } else {
+//             console.log("no name or age found")
+//             res.status(400).send({ error: "no name or age found" })
+//         }
+//     } catch (error)
+//     {
+//         console.log("error in addUser")
+//         res.status(500).send({ error: "internal server error" })
+//         console.log(error)
+//     }
+// }
