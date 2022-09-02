@@ -18,6 +18,19 @@ const Users = require("../users/userModel");
 //     }
 // }
 
+// Login
+exports.login = async (req, res) => {
+    const { email, password } = req.body;
+
+    try {
+        const user = await User.findByCredentials(email, password);
+        const token = user.generateAuthToken();
+        res.status(200).send({ user: user.name, token });
+    } catch (error) {
+        res.status(400).send({ error: error.message });
+    }
+};
+
 exports.addUser = async (req, res) => {
     try {
         const newUser = new User(req.body);
@@ -30,18 +43,6 @@ exports.addUser = async (req, res) => {
         } else {
         res.status(500).send({ error: "Oops" });
         }
-    }
-};
-
-exports.login = async (req, res) => {
-    const { email, password } = req.body;
-
-    try {
-        const user = await User.findByCredentials(email, password);
-        const token = user.generateAuthToken();
-        res.status(200).send({ user: user.name, token });
-    } catch (error) {
-        res.status(400).send({ error: error.message });
     }
 };
 
