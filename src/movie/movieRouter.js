@@ -1,6 +1,6 @@
 const { Router } = require("express")
 const movieRouter = Router()
-const {listMovies, addMovie, deleteMovie, deleteMovies, editMovie} = require("../utils/movieController")
+const {listMovies, addMovie, deleteMovie, deleteMovies, editMovie} = require("../movie/movieController")
 
 movieRouter.get("/movie", listMovies);
 movieRouter.post("/movie", addMovie);

@@ -1,4 +1,4 @@
-const Movie = require("../movie/movieModel");
+const Movie = require("./movieModel");
 
 // http://localhost:5000/movie
 // http://localhost:5000/hello?name=dan&age=35&somethingelse=random
