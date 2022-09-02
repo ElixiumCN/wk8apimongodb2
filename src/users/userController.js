@@ -15,7 +15,7 @@ exports.login = async (req, res) => {
 
 exports.addUser = async (req, res) => {
     try {
-        const newUser = new User(req.body);
+        const newUser = new Users(req.body);
         const token = newUser.generateAuthToken();
         await newUser.save();
         res.status(201).send({ user: newUser.name, token });

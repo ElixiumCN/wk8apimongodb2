@@ -3,6 +3,7 @@ const movieRouter = Router()
 const {listMovies, addMovie, deleteMovie, deleteMovies, editMovie} = require("../movie/movieController")
 const { tokenCheck } = require("../middleware");
 
+
 movieRouter.get("/movie/list", listMovies);
 movieRouter.post("/movie/add", tokenCheck, addMovie);
 movieRouter.delete("/movie/delete", tokenCheck, deleteMovie);
