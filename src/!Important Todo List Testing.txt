@@ -1,0 +1,54 @@
+userRouter.js
+
+    [-]/user/list
+    [x]/user/signup
+        must use this json body / insomnia request
+        {
+            "name": "first",
+            "email": "a@a.com",
+            "password": "hello"
+        }
+
+    [x]/user/login
+        must use this json body / insomnia request
+        {
+        "email": "a@a.com",
+        "password": "hello"
+        }
+    [-]/user/delete [Insomnia API DELETE (not GET/POST)]
+
+    []/users/deleteall
+
+
+login: hello@hello.com, this, hello
+
+movieRouter.js
+
+    [x]/movie/add
+    [x]/movie/list
+    [x]/movie/delete
+    []/movie/deleteall
+
+// Create a full REST API with a DB layer, token
+auth and password hashing.
+
+[x] At least a movies model with relevant routes and
+controllers to cover CRUD. (You guys should already have this) 
+[x] Create a second model to store users with relevant routes and
+controllers to cover CRUD
+[x] Generate a JWT token when a user signs up using a custom mongoose function
+The relevant routes would be -  
+    [x] login
+    [x] signUp
+    [] updateUser
+    [x] delete User 
+
+[x]  hash passwords using a middleware function and save hashed password to the database 
+
+ Secure and authenticate request to the 
+    [x] addMovie, 
+    [x] update movie and 
+    [x] delete movie endpoints using middleware to check for a correct JWT token. 
+
+All routes must be tested in Thunder Client/
+Insomnia/Postman. (Add screenshots to your submission to show this) 

@@ -15,7 +15,7 @@ userRouter.delete("/user/delete", [tokenCheck], userDeleteOne)
 
 userRouter.delete("/users/deleteall", [tokenCheck], userDeleteMany)
 
-// userRouter.put("/user", userEdit)
+userRouter.put("/user/edit", userEdit)   
 
 
 

@@ -52,8 +52,8 @@ exports.userDeleteOne = async (req, res) =>
     try {
         let userList = await Users.find({})
         console.log(userList)
-        if ((req.body.name && req.body.age) && userList.length > 0) {
-        await Users.deleteOne({ name: req.body.name, age: req.body.age })
+        if ((req.body.name) && userList.length > 0) {
+        await Users.deleteOne({ name: req.body.name })
         res.status(200).send(await Users.find({}))
         } else {
             console.log("Nothing to delete")
