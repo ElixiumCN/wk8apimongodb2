@@ -40,7 +40,7 @@ controllers to cover CRUD
 The relevant routes would be -  
     [x] login
     [x] signUp
-    [] updateUser
+    [x] updateUser
     [x] delete User 
 
 [x]  hash passwords using a middleware function and save hashed password to the database 

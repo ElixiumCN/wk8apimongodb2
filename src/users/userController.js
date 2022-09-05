@@ -88,7 +88,7 @@ exports.userEdit = async (req, res) =>
 {
     try
     {
-        await Users.updateOne({ name: req.body.name, age: req.body.age }, { name: req.body.nameR, age: req.body.ageR })
+        await Users.updateOne({ name: req.body.name, email: req.body.email }, { name: req.body.nameR, email: req.body.emailR })
         res.status(200).send(await Users.find({}))
     } catch (error)
     {
